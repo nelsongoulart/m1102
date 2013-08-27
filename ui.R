@@ -49,8 +49,8 @@ are transformed as <i>aX</i>+<i>b</i>, where <i>a</i> is called the slope and
 changing the slope and intercept impacts the distribution and the main
 statistics (below the graphic).</form>")),
                sliderInput("intercept", "Intercept:", value=0, min=-5, max=5),
-               sliderInput("slope", "Slope:", value=1, min=0.5, max=2, 
-                           step=0.2),
+               sliderInput("slope", "Slope:", value=1, min=0.5, max=2,
+                           ticks=FALSE),
                plotOutput("transfchart"),
                tableOutput("transfnum")),
       

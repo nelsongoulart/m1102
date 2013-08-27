@@ -57,7 +57,7 @@ shinyServer(function(input, output) {
   
   # linear transformation
   newData3 <- reactive({
-    data2*input$slope+input$intercept
+    (1+data2)*input$slope+input$intercept
   })
   
   output$transfchart <- renderPlot({
@@ -65,9 +65,8 @@ shinyServer(function(input, output) {
     new.d <- data.frame("value"=new.d)
     p <- ggplot(new.d, aes(value)) +
       geom_histogram(binwidth=0.5, aes(fill=..density.., y=..density..))+
-      xlim(-10,10)+
-      scale_fill_gradient("Density", low = "pink", high = "darkred")+
-      geom_density()+xlab("data")
+      xlim(-9,11)+ geom_density()+xlab("data")+
+      scale_fill_gradient("Density", low = "pink", high = "darkred")
     print(p)
   })
   
